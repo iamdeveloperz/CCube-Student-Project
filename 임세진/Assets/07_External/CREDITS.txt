@@ -1,0 +1,10 @@
+﻿외부 에셋 출처 (모두 무료, 상업적 사용 가능)
+
+KayKit_Halloween / KayKit_SpaceBase / KayKit_City
+  - Kay Lousberg (www.kaylousberg.com), CC0 라이선스
+  - https://github.com/KayKit-Game-Assets
+
+Kenney_FPS (총 모델, 효과음, 조준점) / Kenney_MiniArena (군인 캐릭터)
+  - Kenney (www.kenney.nl), CC0 라이선스
+  - https://github.com/KenneyNL/Starter-Kit-FPS
+  - https://github.com/KenneyNL/Starter-Kit-Basic-Scene

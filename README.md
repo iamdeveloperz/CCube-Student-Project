@@ -1,2 +1,75 @@
-# CCube-Student-Project
-CCube Coding Student Unity Project
+# CCube Student Project
+
+CCube 학생들의 Unity 게임 프로젝트 모음입니다.
+최상위 폴더 하나가 Unity 프로젝트 하나입니다.
+
+| 학생 | 작품 | 폴더 | Unity 버전 |
+| --- | --- | --- | --- |
+| 임세진 | Zombie Survival | [`임세진`](./임세진) · [`임세진_원본`](./임세진_원본) | 2022.3.62f3 |
+
+## 프로젝트 여는 방법
+
+1. 저장소를 받습니다.
+   ```
+   git clone <저장소 주소>
+   ```
+2. Unity Hub → **Add** → **Add project from disk** → 학생 폴더(예: `임세진`)를 선택합니다.
+3. 표에 적힌 Unity 버전으로 엽니다. 처음 열 때는 `Library` 폴더를 새로 만드느라 몇 분 걸립니다.
+
+> `Library`, `Temp`, `Logs`, `UserSettings`, `*.csproj`, `*.sln`은 Unity가 자동으로 다시 만들기 때문에 저장소에 올리지 않습니다. (`.gitignore` 참고)
+
+---
+
+## 임세진 — Zombie Survival
+
+이세계 포털에서 나오는 좀비로부터 기지를 지키는 웨이브 디펜스 게임입니다.
+1인칭으로 직접 총을 쏘고, 3인칭 건설 모드로 바꿔 터렛을 설치해 최대한 많은 웨이브를 버팁니다.
+
+- 씬: `Assets/05_Scenes/Game.unity`
+- 세진이가 작성한 스크립트: `Assets/03_Scripts/`
+
+### 조작 방법
+
+| 키 | 동작 |
+| --- | --- |
+| `SPACE` | 게임 시작 |
+| `W` `A` `S` `D` | 이동 (1인칭) |
+| 마우스 | 조준 |
+| 좌클릭 | 1인칭: 권총 사격 / 3인칭: 터렛 설치 (50 Gold) |
+| `V` | 1인칭 사격 모드 ↔ 3인칭 건설 모드 |
+| `R` | 게임 오버 후 다시 시작 |
+
+### 폴더 구분
+
+| 폴더 | 내용 |
+| --- | --- |
+| `임세진_원본` | 세진이가 만든 상태 그대로 (수정 전 백업) |
+| `임세진` | 원본을 바탕으로 모델·맵·UI를 입히고 동작하지 않던 부분을 고친 버전 |
+
+### `임세진`에서 바뀐 점 (원본 대비)
+
+세진이 코드는 최대한 그대로 두고, 필요한 부분만 조금 고치거나 더했습니다.
+
+**스크립트**
+- `BaseManager.GameOver()` — 두 줄 추가: 최고 웨이브 저장(`WaveManager.OnGameOver()`) + 게임 오버 화면 표시
+- `ZombieAI` — `Start()` 추가: 웨이브가 오를수록 좀비 체력 +25
+- `GameUI.cs` — 새로 추가: 시작 화면, 게임 오버 화면, 조준점, 조작 안내
+- 나머지 스크립트는 코드 변경 없음 (한글 주석이 깨지지 않도록 인코딩만 UTF-8로 변환)
+
+**모델 · 맵**
+- 큐브로 만든 바닥/길/터렛 자리/기지를 숨기고 같은 위치에 모델과 텍스처를 배치 (원래 오브젝트는 그대로 남아 있음)
+- 터렛: `Turret_Canon.prefab` (세진이 `Turret` 스크립트 + Sci-fi 캐논 모델)
+- 좀비: URP 재질 때문에 분홍색으로 보이던 문제를 Built-in 재질로 수정
+- 맵 가장자리 숲, 묘지, 폐차, 건물, 우주 기지, 포털 이펙트, 조명/안개 추가
+
+**버그 수정 · 밸런스**
+- 터렛 총알이 좀비 발밑을 노리다 바닥에 먼저 부딪혀 사라지던 문제 → 좀비 충돌체를 발밑까지 늘림
+- 좀비가 기지 앞까지 걸어오도록 `WayPoint7` 추가
+- 시작 골드 0 → 100, 권총 피해 10 → 25, 터렛 피해 15 → 25 (총알 속도 10 → 20)
+
+### 외부 에셋
+
+`Assets/07_External/` — 모두 CC0 (무료, 출처 표시 의무 없음). 자세한 출처는 `Assets/07_External/CREDITS.txt` 참고.
+
+- [KayKit](https://github.com/KayKit-Game-Assets) (Kay Lousberg) — Halloween Bits, Space Base Bits, City Builder Bits
+- [Kenney](https://github.com/KenneyNL) — 총 모델, 군인 캐릭터, 효과음, 조준점

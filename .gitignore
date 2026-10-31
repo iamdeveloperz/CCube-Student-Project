@@ -107,3 +107,24 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 **/[Aa]ssets/[Ss]ceneDependencyCache*
+
+# ── CCube 추가 항목 ───────────────────────────────────────────
+# 저장소 최상위 폴더 하나가 학생 Unity 프로젝트 하나입니다. (예: 임세진/, 임세진_원본/)
+# 주의: 위의 **/[Ll]ibrary/, **/[Bb]uild/ 등은 모든 깊이에 적용되므로
+#       Assets 안에 같은 이름의 에셋 폴더가 있으면 함께 무시됩니다.
+
+# 프로젝트 압축본 / 빌드 실행 파일 (용량이 커서 저장소에는 올리지 않음)
+*.zip
+*.7z
+*.rar
+*.exe
+**/*_BurstDebugInformation_DoNotShip/
+
+# 에디터 설정
+.idea/
+.vscode/
+
+# OS 파일
+.DS_Store
+Thumbs.db
+Desktop.ini
