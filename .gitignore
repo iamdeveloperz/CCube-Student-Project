@@ -128,3 +128,6 @@ InitTestScene*.unity*
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# 위 **/[Bb]uild/ 규칙에 걸리는 에셋 폴더 예외 (미로 생성기 스크립트 폴더)
+!**/[Aa]ssets/MazeGenerator/Runtime/Build/
