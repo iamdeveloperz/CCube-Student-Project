@@ -114,8 +114,12 @@ CCube 학생들의 Unity 게임 프로젝트 모음입니다.
 - `GhostAnimator.cs` — 새로 추가: 귀신의 이동 속도에 맞춰 대기/걷기/달리기 애니메이션 전환
 - `Enemy`, `Flashlight`, `BatteryPickup`, `Test` 는 변경 없음 (인코딩도 그대로)
 
+**플레이어 · 점프**
+- 플레이어 크기 1.75배 (카메라·손전등·충돌체 함께), 시작 높이 보정
+- 점프가 약 9m까지 떠오르던 문제 → `jumpForce` 9 → 1.3 (점프 높이 m), `gravity` -9.81 → -20 (인스펙터 값만 변경)
+
 **귀신**
-- `Prefabs/enemy.prefab` — 캡슐 더미를 숨기고 `True_Clown` 피에로 모델(키 2.1m)과 `Hyojun/Ghost.controller`(Idle/Walk/Run 블렌드) 적용
+- `Prefabs/enemy.prefab` — 캡슐 더미를 숨기고 `True_Clown` 피에로 모델(키 6m, 미로 벽 높이와 같음)과 `Hyojun/Ghost.controller`(Idle/Walk/Run 블렌드) 적용
 - 닿으면 죽는 `KillZone` 트리거 추가 (기존 `OnCollisionEnter` 판정은 CharacterController 때문에 잘 안 걸리던 문제 보완)
 - 어둡고 픽셀이 큰 화면에서도 형체가 보이도록 귀신 재질에 은은한 자체발광(Emission) 적용
 
